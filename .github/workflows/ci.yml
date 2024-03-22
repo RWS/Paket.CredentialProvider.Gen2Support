@@ -28,5 +28,5 @@ jobs:
       - name: Prep packages
         run: dotnet nuget add source --username rws --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/RWS/index.json"
       - name: Publish to GitHub packages 
-        run: dotnet nuget push ./Paket.CredentialProvider.Gen2Support/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
+        run: dotnet nuget push .\Paket.CredentialProvider.Gen2Support\bin\Release\*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
 
