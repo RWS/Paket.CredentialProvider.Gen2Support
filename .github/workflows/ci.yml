@@ -24,10 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - shell: pwsh
-        run: dotnet build .\Paket.CredentialProvider.Gen2Support\Paket.CredentialProvider.Gen2Support.fsproj -c Release
+      -  run: dotnet pack .\Paket.CredentialProvider.Gen2Support\Paket.CredentialProvider.Gen2Support.fsproj -c Release
+      - name: Prep packages
+        run: dotnet nuget add source --username rws --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/RWS/index.json"
+      - name: Publish to GitHub packages 
+        run: dotnet nuget push ./Paket.CredentialProvider.Gen2Support/bin/Release/net8.0/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Paket.CredentialProvider.Gen2Support
-          path: ./Paket.CredentialProvider.Gen2Support\bin\Release\net8.0\
