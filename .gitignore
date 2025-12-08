@@ -431,3 +431,4 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudiocode,visualstudio,rider
+.vscode
