@@ -30,4 +30,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Paket.CredentialProvider.Gen2Support
-          path: ./Paket.CredentialProvider.Gen2Support\bin\Release\net8.0\
+          path: ./Paket.CredentialProvider.Gen2Support\bin\Release\net10.0\
