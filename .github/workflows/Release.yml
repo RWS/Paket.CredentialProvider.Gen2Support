@@ -10,7 +10,7 @@ jobs:
         uses: ./.github/workflows/ci.yml
 
 
-    release-chainer:
+    release-CredentialProvider:
         needs: build
         runs-on: windows-latest
         steps:
