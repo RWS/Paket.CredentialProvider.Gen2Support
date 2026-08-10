@@ -26,11 +26,11 @@ jobs:
     steps:
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
       - shell: pwsh
-        run: dotnet build .\Paket.CredentialProvider.Gen2Support\Paket.CredentialProvider.Gen2Support.fsproj -c Release
+        run: dotnet build .\Paket.CredentialProvider.Gen2Support\Paket.CredentialProvider.Gen2Support.csproj -c Release
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: Paket.CredentialProvider.Gen2Support
           path: ./Paket.CredentialProvider.Gen2Support\bin\Release\net10.0\
